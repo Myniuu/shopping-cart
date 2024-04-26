@@ -1,0 +1,22 @@
+.heading {
+  height: 100px;
+  background-color: rgb(52, 144, 83);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.heading h1 {
+  margin-left: 20px;
+}
+
+.cartBtn {
+  height: 30px;
+  width: 80px;
+  margin-right: 20px;
+  border-radius: 20px;
+  border: none;
+  background-color: rgb(48, 48, 48);
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 700;
+}
