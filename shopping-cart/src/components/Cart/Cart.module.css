@@ -1,0 +1,57 @@
+.openedCart {
+  position: absolute;
+  right: 0;
+  width: 300px;
+  display: none;
+  flex-direction: column;
+  border: 1px solid white;
+  border-radius: 10px;
+  gap: 10px;
+  background-color: black;
+}
+
+.openedCart div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.openedCart h2 {
+  margin-left: 5px;
+}
+
+.openedCart button {
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  margin-right: 5px;
+  font-weight: 700;
+}
+
+.openedCart p {
+  margin-left: 5px;
+}
+
+.checkout {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.checkout button {
+  width: 70px;
+  border-radius: 10px;
+}
+
+.checkout button:nth-child(1) {
+  background-color: green;
+}
+
+.checkout button:nth-child(2) {
+  background-color: red;
+}
+
+.active {
+  display: flex;
+}

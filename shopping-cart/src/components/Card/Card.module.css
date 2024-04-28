@@ -1,0 +1,23 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border: 2px solid white;
+  border-radius: 10px;
+  width: 200px;
+  height: 300px;
+  box-shadow: 8px 8px 24px -10px rgb(0, 0, 0);
+  background-color: rgba(89, 47, 137, 0.783);
+}
+
+.card button {
+  height: 30px;
+  width: 100px;
+  border-radius: 20px;
+  border: 1px solid white;
+  cursor: pointer;
+  background-color: rgb(48, 48, 48);
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 700;
+}
