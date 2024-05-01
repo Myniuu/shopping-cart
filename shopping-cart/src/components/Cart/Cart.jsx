@@ -1,52 +1,26 @@
 import styles from "./Cart.module.css";
 
-export function Cart({ className }) {
+export function Cart({ className, onClick, cartContent }) {
   return (
-    <div className={styles.openedCart}>
-      <div>
-        <h2>Your cart: 4 items</h2>
-        <button>X</button>
+    <div className={`${styles.openedCart} ${className}`}>
+      <div className={`${styles.cartContent} ${className}`}>
+        <h2>In cart: 4 items</h2>
+        <button onClick={onClick}>X</button>
       </div>
-      <div>
-        <p>
-          Apple, <span>Quantity: 2</span>
-        </p>
-        <div>
-          <button>+</button>
-          <button>-</button>
+      {cartContent.map((item) => (
+        <div key={item.name} className={`${styles.cartContent} ${className}`}>
+          <p>
+            {item.name}, <span>Quantity: {item.length}</span>
+          </p>
+          <div>
+            <button>+</button>
+            <button>-</button>
+          </div>
         </div>
-      </div>
-      <div>
-        <p>
-          Peach, <span>Quantity: 4</span>
-        </p>
-        <div>
-          <button>+</button>
-          <button>-</button>
-        </div>
-      </div>
-      <div>
-        <p>
-          Watermelon, <span>Quantity: 1</span>
-        </p>
-        <div>
-          <button>+</button>
-          <button>-</button>
-        </div>
-      </div>
-      <div>
-        <p>
-          Lemon, <span>Quantity: 10</span>
-        </p>
-        <div>
-          <button>+</button>
-          <button>-</button>
-        </div>
-      </div>
+      ))}
       <div className={styles.checkout}>
         <h3>Price: 34$</h3>
         <div>
-          {" "}
           <button>Checkout</button>
           <button>Clear</button>
         </div>

@@ -2,7 +2,7 @@
   position: absolute;
   right: 0;
   width: 300px;
-  display: none;
+  display: flex;
   flex-direction: column;
   border: 1px solid white;
   border-radius: 10px;
@@ -50,8 +50,4 @@
 
 .checkout button:nth-child(2) {
   background-color: red;
-}
-
-.active {
-  display: flex;
 }

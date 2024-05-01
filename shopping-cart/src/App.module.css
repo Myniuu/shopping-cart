@@ -2,3 +2,11 @@
   margin: 0;
   padding: 0;
 }
+
+.active {
+  display: none;
+}
+
+.openedCart {
+  display: flex;
+}
