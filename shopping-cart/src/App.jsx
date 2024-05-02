@@ -15,8 +15,11 @@ export function App() {
   }
 
   function addNewItemToCart(item) {
-    setCartContent((prevCartContent) => [...prevCartContent, item]);
-    console.log(cartContent);
+    if (!cartContent.some((cartItem) => cartItem.name === item.name)) {
+      setCartContent((prevCartContent) => [...prevCartContent, item]);
+    } else {
+      alert("This product is already in cart");
+    }
   }
 
   return (
