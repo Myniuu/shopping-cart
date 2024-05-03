@@ -1,6 +1,34 @@
 import styles from "./Cart.module.css";
 
-export function Cart({ className, onClick, cartContent }) {
+export function Cart({ className, onClick, cartContent, setCartContent }) {
+  const handleUpdateQuantity = (item, action) => {
+    let updatedCartContent;
+    if (action === "decrease" && item.quantity === 1) {
+      updatedCartContent = cartContent.filter(
+        (cartItem) => cartItem.name !== item.name
+      );
+    } else {
+      updatedCartContent = cartContent.map((cartItem) => {
+        if (cartItem.name === item.name) {
+          return {
+            ...cartItem,
+            quantity:
+              action === "increase"
+                ? cartItem.quantity + 1
+                : cartItem.quantity - 1,
+          };
+        }
+        return cartItem;
+      });
+    }
+    setCartContent(updatedCartContent);
+  };
+
+  const totalPrice = cartContent.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
+
   return (
     <div className={`${styles.openedCart} ${className}`}>
       <div className={`${styles.cartContent} ${className}`}>
@@ -13,18 +41,17 @@ export function Cart({ className, onClick, cartContent }) {
             {item.name}, <span>Quantity: {item.quantity}</span>
           </p>
           <div>
-            <button>+</button>
-            <button>-</button>
+            <button onClick={() => handleUpdateQuantity(item, "increase")}>
+              +
+            </button>
+            <button onClick={() => handleUpdateQuantity(item, "decrease")}>
+              -
+            </button>
           </div>
         </div>
       ))}
       <div className={styles.checkout}>
-        <h3>
-          {`Price: ${cartContent
-            .map((item) => item.price)
-            .reduce((prev, curr) => prev + curr, 0)}
-          $`}
-        </h3>
+        <h3>Price: {totalPrice} $</h3>
         <div>
           <button>Checkout</button>
           <button>Clear</button>

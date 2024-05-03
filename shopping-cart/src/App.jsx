@@ -25,7 +25,11 @@ export function App() {
   return (
     <>
       {isCartOpen && (
-        <Cart cartContent={cartContent} onClick={() => setIsCartOpen(false)} />
+        <Cart
+          setCartContent={setCartContent}
+          cartContent={cartContent}
+          onClick={() => setIsCartOpen(false)}
+        />
       )}
       <Heading onClick={handleOpenCartClick} />
       <ShopArea>
