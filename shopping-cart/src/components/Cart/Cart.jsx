@@ -29,6 +29,11 @@ export function Cart({ className, onClick, cartContent, setCartContent }) {
     0
   );
 
+  function checkoutItems() {
+    alert("Thank you for your purchase!");
+    setCartContent([]);
+  }
+
   return (
     <div className={`${styles.openedCart} ${className}`}>
       <div className={`${styles.cartContent} ${className}`}>
@@ -53,8 +58,8 @@ export function Cart({ className, onClick, cartContent, setCartContent }) {
       <div className={styles.checkout}>
         <h3>Price: {totalPrice} $</h3>
         <div>
-          <button>Checkout</button>
-          <button>Clear</button>
+          <button onClick={checkoutItems}>Checkout</button>
+          <button onClick={() => setCartContent([])}>Clear</button>
         </div>
       </div>
     </div>
