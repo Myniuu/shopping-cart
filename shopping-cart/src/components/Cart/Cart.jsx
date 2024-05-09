@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import styles from "./Cart.module.css";
 
 export function Cart({ className, onClick, cartContent, setCartContent }) {
@@ -24,12 +25,18 @@ export function Cart({ className, onClick, cartContent, setCartContent }) {
     setCartContent(updatedCartContent);
   };
 
-  const totalPrice = cartContent.reduce(
-    (total, item) => total + item.price * item.quantity,
-    0
-  );
+  const memoizedPrice = useMemo(() => {
+    return cartContent.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0
+    );
+  }, [cartContent]);
 
   function checkoutItems() {
+    if (cartContent.length === 0) {
+      alert("Your cart is empty");
+      return;
+    }
     alert("Thank you for your purchase!");
     setCartContent([]);
   }
@@ -56,7 +63,7 @@ export function Cart({ className, onClick, cartContent, setCartContent }) {
         </div>
       ))}
       <div className={styles.checkout}>
-        <h3>Price: {totalPrice} $</h3>
+        <h3>Price: {memoizedPrice} $</h3>
         <div>
           <button onClick={checkoutItems}>Checkout</button>
           <button onClick={() => setCartContent([])}>Clear</button>
